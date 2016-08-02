@@ -6,8 +6,8 @@
 
 ## Folder Structure
 
-
-`|----/home/bio_tmp/NGSDataIntegration/
+```
+|----/home/bio_tmp/NGSDataIntegration/
 
 			                   |----- inputFiles/
 							   
@@ -25,7 +25,7 @@
 										|----- nohupRNASeqTumor.out
 										|----- nohupExomeSeqNormal.out
 										|----- nohupExomeSeqTumor.out										
-`
+```
 
 
 ### RNA-SEQ Pipeline (CERTH version)
@@ -57,9 +57,11 @@ _not needed_
 
 #### Step D1: Prepare for cuffmerge
 -------------------------------
-`[assemblies.txt]
+```
+[assemblies.txt]
 
-<content>`
+<content>
+```
 
 
 #### Step D2: Run Cuffmerge
