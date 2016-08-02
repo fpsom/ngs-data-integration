@@ -8,6 +8,7 @@
 
 
 `|----/home/bio_tmp/NGSDataIntegration/
+
 			                   |----- inputFiles/
 							   
 							   
@@ -33,7 +34,7 @@ Commands are executed in `outputFiles/`  directory.
 
 #### Step A1: Join Lanes per Forward / Reverse
 -----------------------------------------
-* not needed *
+_not needed_
 
 
 #### Step A2: Adapter Trimming + FastQC
@@ -57,6 +58,7 @@ Commands are executed in `outputFiles/`  directory.
 #### Step D1: Prepare for cuffmerge
 -------------------------------
 `[assemblies.txt]
+
 <content>`
 
 
