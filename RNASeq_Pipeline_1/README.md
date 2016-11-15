@@ -10,16 +10,37 @@
 |----/home/bio_tmp/NGSDataIntegration/
 
 			                   |----- inputFiles/
-							   
+										|----- README
+										|----- ExomeSeq_Normal_R1.fastq
+							                        |----- ExomeSeq_Normal_R2.fastq
+										|----- ExomeSeq_Tumor_R1.fastq
+										|----- ExomeSeq_Tumor_R2.fastq
+										|----- RNASeq_Normal_R1.fastq
+										|----- RNASeq_Normal_R2.fastq
+										|----- RNASeq_Tumor_R1.fastq
+										|----- RNASeq_Tumor_R2.fastq
 							   
 			                   |----- outputFiles/
+					                                        |----- nohupFastQC_RNASeq_Normal.out
+										|----- RNASeq_Normal_R1_val_1.fq
+										|----- RNASeq_Normal_R1.fastq_trimming_report.txt  
+										|----- RNASeq_Normal_R2_val_2.fq
+										|----- RNASeq_Normal_R2.fastq_trimming_report.txt
+										|----- nohupFastQC_RNASeq_Tumor.out
+										|----- RNASeq_Tumor_R1_val_1.fq
+										|----- RNASeq_Tumor_R1.fastq_trimming_report.txt  
+										|----- RNASeq_Tumor_R2_val_2.fq
+										|----- RNASeq_Tumor_R2.fastq_trimming_report.txt
+										
 
 							   
 			                   |----- simulatedData/
 										|----- rawData/
-												|----- 
-												|----- 
-												|----- 
+												|----- alignment_practical.tar
+												|----- gerald_C1TD1ACXX_7_CGATGT.bam
+												|----- gerald_C2DBEACXX_3.bam
+												|----- gerald_C1TD1ACXX_7_ATCACG.bam
+												|----- gerald_C1TD1ACXX_8_ACAGTG.bam
 										|----- nohup.out
 										|----- nohupRNASeqNormal.out
 										|----- nohupRNASeqTumor.out
