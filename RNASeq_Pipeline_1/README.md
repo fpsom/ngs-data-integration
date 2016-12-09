@@ -79,16 +79,21 @@ _not necessary in this work_
 -----------------------------
 
 ```
-[????elapsed]	nohup time tophat2 -p 8 -G /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -o RNASeq_Normal /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome RNASeq_Normal_R1_val_1.fq RNASeq_Normal_R2_val_2.fq > nohupTopHatRNASeq_Normal.out 2>&1&
+[00:52:09 elapsed]	
+nohup time tophat2 -p 8 -G /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -o RNASeq_Normal /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome RNASeq_Normal_R1_val_1.fq RNASeq_Normal_R2_val_2.fq > nohupTopHatRNASeq_Normal.out 2>&1&
 ```
-
+[00:59:15 elapsed]      
+nohup time tophat2 -p 8 -G /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -o RNASeq_Tumor /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome RNASeq_Tumor_R1_val_1.fq RNASeq_Tumor_R2_val_2.fq > nohupTopHatRNASeq_Tumor.out 2>&1&
 
 
 #### Step C: Run Cufflinks
 ---------------------
 ```
-[?????elapsed]	nohup time cufflinks -p 8 -o RNASeq_Normal_Cufflinks RNASeq_Normal/accepted_hits.bam > nohupCufflinks_RNASeq_Normal.out 2>&1&
+[2:50.32elapsed]	
+nohup time cufflinks -p 8 -o RNASeq_Normal_Cufflinks RNASeq_Normal/accepted_hits.bam > nohupCufflinks_RNASeq_Normal.out 2>&1&
 ```
+[1:30.30elapsed]
+nohup time cufflinks -p 8 -o RNASeq_Tumor_Cufflinks RNASeq_Tumor/accepted_hits.bam > nohupCufflinks_RNASeq_Tumor.out 2>&1&
 
 #### Step D1: Prepare for cuffmerge
 -------------------------------
