@@ -111,7 +111,7 @@ nohup time cufflinks -p 8 -o RNASeq_Tumor_Cufflinks RNASeq_Tumor/accepted_hits.b
 #### Step D2: Run Cuffmerge
 ---------------------
 ```
-[?????elapsed]	nohup time cuffmerge -g /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -s /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome.fa -p 8 assemblies.txt > nohupCuffmerge.out 2>&1&
+[4:56.32elapsed]	nohup time cuffmerge -g /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Annotation/Genes/genes.gtf -s /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome.fa -p 8 assemblies.txt > nohupCuffmerge.out 2>&1&
 ```
 
 #### Step E: Run CuffDiff
