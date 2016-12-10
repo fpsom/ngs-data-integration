@@ -117,7 +117,7 @@ nohup time cufflinks -p 8 -o RNASeq_Tumor_Cufflinks RNASeq_Tumor/accepted_hits.b
 #### Step E: Run CuffDiff
 --------------------
 ```
-[????elapsed]	nohup time cuffdiff -o diff_out_perGroup -b /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome.fa -p 8 -L G1,G2 -u merged_asm/merged.gtf ./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam ./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam,./RNASeq_Normal/accepted_hits.bam > nohupCuffdiff.out 2>&1&
+[????elapsed]	nohup time cuffdiff -o diff_out_perGroup -b /home/bio_tmp/HSapRefData/UCSCRefData/Homo_sapiens/UCSC/hg19/Sequence/Bowtie2Index/genome.fa -p 8 -L N,T -u merged_asm/merged.gtf ./RNASeq_Normal/accepted_hits.bam ./RNASeq_Tumor/accepted_hits.bam > nohupCuffdiff.out 2>&1&
 ```
 
 #### Step F: Create counts file (comes after step B)
