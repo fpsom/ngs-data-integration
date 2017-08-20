@@ -39,7 +39,7 @@ XLOC_000003,chr1,30365,30503,chr1:30365-30503,MIR1302-10,+
 ```
 
 ## find the overlap within the transcript
-find the ranges
+## A. find the ranges
 ```library(GenomicRanges)
 gr1<-GRanges(seqnames=expr_data$Chromosome,IRanges(start=expr_data$Start,end=expr_data$End))
 
@@ -51,7 +51,9 @@ print("1st run of ranges")
 ranges <- ranges[with(ranges, startB <= startA & endB >= endA),]
 print("merge the ranges")```
 
-find the overlaping region on betas file (betas_m) and on expression file(expr_m)
+## B. find the overlaping region on betas file (betas_m) and on expression file(expr_m)
+
+
 
 ##
 
