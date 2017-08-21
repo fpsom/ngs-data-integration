@@ -39,7 +39,9 @@ XLOC_000003,chr1,30365,30503,chr1:30365-30503,MIR1302-10,+
 ```
 
 ## find the overlap within the transcript
+
 A. find the ranges
+
 ```library(GenomicRanges)
 gr1<-GRanges(seqnames=expr_data$Chromosome,IRanges(start=expr_data$Start,end=expr_data$End))
 
@@ -68,6 +70,7 @@ info.within.1.2<-info.within.1[!duplicated(info.within.1$x),]
 colnames(info.within.1.2)
 
 info.within.1.2$location <-  "body" ```
+
 C. save the ranges within the transcript
 
  ```out.file <- "Body_overlap_regions.csv"
@@ -76,6 +79,7 @@ write.table(info.within.1.2,     file=out.file, col.names=T, row.names=F, quote=
 ## find the overlap within the TSS + st
 
 A. find the TSS
+
 ```positive<-subset(expr_data, expr_data[,7] == "+")
 
 x<- as.data.frame(positive[,3]-2000)
@@ -84,6 +88,7 @@ names(file)<- names(positive)
 print("5-3 TSS ranges")```
 
 B. find the ranges
+
 ```library(GenomicRanges)
 gr1<-GRanges(seqnames=positive$Chromosome,IRanges(start=positive$Start,end=positive$End))
 
@@ -122,6 +127,7 @@ write.table(info.tss.pos.1.2,     file=out.file, col.names=T, row.names=F, quote
 ## find the overlap within the TSS - st
 
 A. find the TSS
+
 ```negative<-subset(expr_data, expr_data[,7] == "-")
 
 x<- as.data.frame(negative[,3]-2000)
@@ -130,6 +136,7 @@ names(file)<- names(negative)
 print("5-3 TSS ranges")```
 
 B. find the ranges
+
 ```library(GenomicRanges)
 gr1<-GRanges(seqnames=negative$Chromosome,IRanges(start=negative$Start,end=negative$End))
 
