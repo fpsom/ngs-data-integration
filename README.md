@@ -6,20 +6,22 @@ Data integration is a key objective in biomedical research, as it allows the ide
 
 Currently the process supports two NGS technologies; 450K methylation data (sample data produced by an Infinium Human Methylation 450k array) and RNA sequencing data (sample data produced by Illumina NextSeq 500).
 
+ define the exact chromosomal position
+
 ### 450K methylation data
 
 The sample data (`betas_450k_Meth.csv`) is located within the `sample_data` folder, in a `csv` format, containing the following columns:
 
-`ID`, `Chromosome`, `Start`, `End`, `Strand` and `betas_m`
+`ID`, `Chromosome`, `Start`, `End` and `Strand` 
 
-The first column (`ID`) corresponds to the identifier assigned to each methylation site, the next four columns (`Chromosome`, `Start`, `End` and `Strand`) define the exact chromosomal position of the site and the last column (`betas_m`) ...???
+The first column (`ID`) corresponds to the identifier assigned to each methylation site (CpG site), the next four columns (`Chromosome`, `Start`, `End` and `Strand`) define the exact chromosomal position of the site
 
 A snippet of the data is the following:
 
 ```
-cg13869341,chr1,15865,15866,+,chr1_15865_15866
-cg14008030,chr1,18827,18828,+,chr1_18827_18828
-cg12045430,chr1,29407,29408,+,chr1_29407_29408
+cg13869341,chr1,15865,15866,+
+cg14008030,chr1,18827,18828,+
+cg12045430,chr1,29407,29408,+
 ```
 
 ### RNA-Seq data
@@ -40,7 +42,7 @@ XLOC_000003,chr1,30365,30503,chr1:30365-30503,MIR1302-10,+
 
 ### find the overlap within the transcript
 
-step A. find the ranges
+step A. find the overlapping ranges between the CpG and the LOC
 
 ```
 library(GenomicRanges)
@@ -55,7 +57,7 @@ ranges <- ranges[with(ranges, startB <= startA & endB >= endA),]
 print("merge the ranges")
 ```
 
-step B. find the overlaping region on betas file (`betas_m`) and on expression file(`expr_m`)
+step B. add a column on betas file (`betas_m`) and on expression file(`expr_m`) with the overlapping region in each case and create a total matrix (`info.within.1.2`)
 
 ```
 info<-within(ranges, betas_m <- paste(seqnames, startA, endA,  sep='_'))
@@ -75,7 +77,7 @@ colnames(info.within.1.2)
 info.within.1.2$location <-  "body" 
 ```
 
-step C. save the ranges within the transcript
+step C. save the total matrix within the transcript
 
  ```
  out.file <- "Body_overlap_regions.csv"
@@ -84,7 +86,7 @@ write.table(info.within.1.2,     file=out.file, col.names=T, row.names=F, quote=
 
 ### find the overlap within the TSS + st
 
-step A. find the TSS
+step A. find the TSS of the 5'-3' transcript
 
 ```
 positive<-subset(expr_data, expr_data[,7] == "+")
@@ -95,7 +97,7 @@ names(file)<- names(positive)
 print("5-3 TSS ranges")
 ```
 
-step B. find the ranges
+step B. find the overlapping ranges between the CpG and the LOC
 
 ```
 library(GenomicRanges)
@@ -109,7 +111,7 @@ print("5-3: 2nd run of ranges")
 ranges <- ranges[with(ranges, startB <= startA & endB >= endA),]
 ```
 
-step C. find the overlaping region on betas file (`betas_m`) and on expression file(`expr_m`)
+step C. add a column on betas file (`betas_m`) and on expression file(`expr_m`) with the overlapping region in each case and create a total matrix (`info.tss.pos.1`)
 
 ```
 info<-within(ranges, betas_m <- paste(seqnames, startA, endA,  sep='_'))
@@ -130,7 +132,7 @@ info.tss.pos.1.2<-info.tss.pos.1[!duplicated(info.tss.pos.1$x),]
 info.tss.pos.1$location <-  "TSS" 
 ```
 
-step D. save the ranges within the TSS (+ strd)
+step D. save the total matrix within the TSS (+ strd)
 
  ```
  out.file <- "TSS5-3_overlap_regions.csv"
@@ -139,7 +141,7 @@ write.table(info.tss.pos.1.2,     file=out.file, col.names=T, row.names=F, quote
 
 ### find the overlap within the TSS - st
 
-step A. find the TSS
+step A. find the TSS of the 3'-5' transcript
 
 ```
 negative<-subset(expr_data, expr_data[,7] == "-")
@@ -150,7 +152,7 @@ names(file)<- names(negative)
 print("5-3 TSS ranges")
 ```
 
-step B. find the ranges
+step B. find the overlapping ranges between the CpG and the LOC
 
 ```
 library(GenomicRanges)
@@ -164,7 +166,7 @@ print("5-3: 2nd run of ranges")
 ranges <- ranges[with(ranges, startB <= startA & endB >= endA),]
 ```
 
-step C. find the overlaping region on betas file (`betas_m`) and on expression file(`expr_m`)
+step C. add a column on betas file (`betas_m`) and on expression file(`expr_m`) with the overlapping region in each case and create a total matrix (`info.tss.neg.1.2`)
 
 ```
 info<-within(ranges, betas_m <- paste(seqnames, startA, endA,  sep='_'))
@@ -184,7 +186,7 @@ info.tss.neg.1$x <- paste(info.tss.neg.1$betas_m,info.tss.neg.1$expr_m, info.tss
 info.tss.neg.1.2<-info.tss.neg.1[!duplicated(info.tss.neg.1$x),] 
 ```
 
-step D. save the ranges within the transcript
+step D. save the total matrix within the TSS (- strd)
 
  ```
  out.file <- "TSS3-5_overlap_regions.csv"
