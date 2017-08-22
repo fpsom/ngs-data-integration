@@ -28,7 +28,7 @@ The sample data (`gene_expr_RNA_Seq.csv`) is located within the `sample_data` fo
 
 `LOC`, `Chromosome`, `Start`, `End`, `gene.features.locus`, `Genes` and `Strand`
 
-The first column (`LOC`) corresponds to the identifier assigned to each gene after the tuxedo protocol (???ref???), columns `Chromosome`, `Start`, `End`, `gene.features.locus` and `Strand` define the exact chromosomal position of the site and column `Genes` contains the gene names that the particular loci has been annotated with.
+The first column (`LOC`) corresponds to the identifier assigned to each gene after the tuxedo protocol [1], columns `Chromosome`, `Start`, `End`, `gene.features.locus` and `Strand` define the exact chromosomal position of the site and column `Genes` contains the gene names that the particular loci has been annotated with.
 
 A snippet of the data is the following:
 
@@ -62,6 +62,8 @@ The `R` script developed is based on the `GenomicRanges` package (`library(Genom
 - **step C**. add a column on betas file (`betas_m`) and on expression file(`expr_m`) with the overlapping region in each case and create a total matrix (`info.tss.neg.1.2`)
 - **step D**. save the total matrix within the TSS and the `-` strand
 
+## References
 
+[1] Cole Trapnell,	Adam Roberts,	Loyal Goff,	Geo Pertea,	Daehwan Kim,	David R Kelley, Harold Pimentel,	Steven L. Salzberg,	John L. Rinn	& Lior Pachter, "_Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks_", Nature Protocols 7, 562–578 (2012) doi:10.1038/nprot.2012.016 ¶6.
 
 _Note: Testing data can be retrieved from [genome/gms repository](https://github.com/genome/gms/wiki/HCC1395-WGS-Exome-RNA-Seq-Data )_
