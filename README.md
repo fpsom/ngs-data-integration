@@ -4,7 +4,9 @@ Data integration is a key objective in biomedical research, as it allows the ide
 
 ## Input Data Sources
 
-Currently the process supports two NGS technologies; 450K methylation data (sample data produced by an Infinium Human Methylation 450k array) and RNA sequencing data (sample data produced by Illumina NextSeq 500).
+Currently the process supports two technologies; 
+
+The DNA methylation profiling was performed using the Infinium Human Methylation 450k array (Illumina) interrogating 485,577 CpG sites and data were analyzed using RnBeads (R package). RNA sequencing was performed using NextSeq 500 (Illumina) and data were analyzed using TopHat in Unix environment. The DNA methylation and expression levels were measured using b-values and Fragments Per Kilobase Million (FPKM), respectively. 
 
 ### 450K methylation data
 
